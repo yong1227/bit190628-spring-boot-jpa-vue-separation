@@ -1,7 +1,9 @@
 package com.bitcamp.web.service;
 
+import java.util.List;
 import java.util.Optional;
 
+import com.bitcamp.web.domain.CustomerDTO;
 import com.bitcamp.web.entities.Customer;
 import com.bitcamp.web.repositories.CustomerRepository;
 import com.bitcamp.web.service.CustomerService;
@@ -21,6 +23,8 @@ public class CustomerService {
         return customerRepository.count();
     }
 
+
+
     public void	delete(Customer entity){
         customerRepository.delete(entity);
     }
@@ -29,7 +33,7 @@ public class CustomerService {
         customerRepository.deleteAll();
     }
    
-    public  void	deleteAll(Iterable<Customer> entities){
+    public  void deleteAll(Iterable<Customer> entities){
         customerRepository.deleteAll(entities);
     }
    
@@ -60,4 +64,13 @@ public class CustomerService {
     public Iterable<Customer>	saveAll(Iterable<Customer> entities){
         return customerRepository.saveAll(entities);
     }
+
+    // public CustomerDTO login(String customerId){
+
+    //     // = findByCustomerId(customerId);
+
+        
+    // }
+
+    
 }

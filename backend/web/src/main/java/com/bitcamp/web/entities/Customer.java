@@ -13,6 +13,7 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -22,6 +23,7 @@ import lombok.ToString;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
+@Setter
 @ToString
 @Table(name = "customers")
 
@@ -46,17 +48,15 @@ public class Customer implements Serializable{
     private String city;
     @Column(name = "address")
     private String address;
-    @Column(name = "postalcolde")
-    private String postalcolde;
+    @Column(name = "postalcode")
+    private String postalcode;
     @Column(name = "photo")
     private String photo;
 
     @Override
     public String toString(){
-        return String.format("고객정보 No: %d\n"
-        +"ID : %s", 
-        
-        id,customerId );
+        return String.format("고객정보 NO : %d / ID : %s / NA : %s / PW : %s / SSN : %s / PH : %s / CT : %s / AD : %s / PO : %s / PH : %s",
+        id, customerId, customerName, password, ssn, phone, city, address, postalcode, photo);
     }
 
     @Builder
@@ -69,7 +69,7 @@ public class Customer implements Serializable{
             this.phone = phone;
             this.city = city;
             this.address = address;
-            this.postalcolde = postalcolde;
+            this.postalcode = postalcolde;
             this.photo = photo;
     }
 }
