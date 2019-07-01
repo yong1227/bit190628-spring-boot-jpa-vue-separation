@@ -1,27 +1,45 @@
 <template>
   <div class="hello">
-    hello world
+    <Nav></Nav>
+    <JumboTron></JumboTron>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Nav from '@/components/common/Nav.vue'
-import Footer from'@/components/common/Footer.vue'
-import JumboTron from'@/components/common/JumboTron.vue'
+import Nav from "@/components/common/Nav.vue";
+import Footer from "@/components/common/Footer.vue";
+import JumboTron from "@/components/common/JumboTron.vue";
 
 export default {
-  name: 'Home',
-  components:{
-    Nav,Footer,JumboTron
+  name: "Home",
+  components: {
+    Nav,
+    Footer,
+    JumboTron
   },
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
   }
-}
+};
 </script>
 
 <style scoped>
-
+h1,
+h2 {
+  font-weight: normal;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
 </style>

@@ -32,7 +32,7 @@ import axios from 'axios'
 export default {
   data(){
     return{
-      context :'http://localhost:9000/'
+      context :'http://localhost:9000/customers/'
     }
   },
   components: {
@@ -40,35 +40,64 @@ export default {
     Footer
   },
   methods:{
-    get(){
-      axios.get(`${this.context}/customers/count`)
+    count(){
+      axios.get(`${this.context}/count`)
       .then(res=>{
         alert(`SUCCESS: ${res.data}`)
       })
       .catch(e=>{
         alert('ERROR')
       })
-      // this.$router.push("/ListTable")
     },
-    post(){
-      axios.post('/customers')
-      .then(d=>{
-        console.log('post 연동')
-        alert(`post 연동 성공 : ${res.data.result}`)
+    deleteById(){
+      axios.get(`${this.context}/1`)
+      .then(res=>{
+        alert(`SUCCESS: ${res.data}`)
+      })
+      .catch(e=>{
+        alert('ERROR')
       })
     },
-    put(){
-      axios.put('/customers/id')
-      .then(d=>{
-        alert(`put 연동 성공 : ${res.data.result}`)
+    existsById(){
+      axios.get(`${this.context}/exists/1`)
+      .then(res=>{
+        alert(`SUCCESS: ${res.data}`)
+      })
+      .catch(e=>{
+        alert('ERROR')
       })
     },
-    del(){
-      axios.delete('/customers/id')
-      .then(d=>{
-        alert(`del 연동 성공: ${res.data.result}`)
+    findAll(){
+      axios.get(`${this.context}`)
+      .then(res=>{
+        alert(`SUCCESS: ${res.data}`)
       })
-    }
+      .catch(e=>{
+        alert('ERROR')
+      })
+    },
+
+    findById(){
+      axios.get(`${this.context}/1`)
+      .then(res=>{
+        alert(`SUCCESS: ${res.data}`)
+      })
+      .catch(e=>{
+        alert('ERROR')
+      })
+    },
+
+    save(){
+      axios.post(`${this.context}`)
+      .then(res=>{
+        alert(`SUCCESS: ${res.data}`)
+      })
+      .catch(e=>{
+        alert('ERROR')
+      })
+    },
+
+
   }
 }
 </script>

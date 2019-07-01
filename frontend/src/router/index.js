@@ -6,7 +6,6 @@ import LoginForm from '@/components/member/LoginForm'
 import Calculator2 from '@/components/basic/Calculator2'
 import ListTable from '@/components/member/ListTable'
 
-
 Vue.use(Router)
 
 export default new Router({
@@ -37,7 +36,5 @@ export default new Router({
       name: 'ListTable',
       component: ListTable
     },
-    
-  
   ]
 })

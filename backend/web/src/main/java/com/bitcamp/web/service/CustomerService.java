@@ -1,16 +1,11 @@
 package com.bitcamp.web.service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
-import com.bitcamp.web.domain.CustomerDTO;
 import com.bitcamp.web.entities.Customer;
 import com.bitcamp.web.repositories.CustomerRepository;
 import com.bitcamp.web.service.CustomerService;
 
-import org.apache.catalina.util.CustomObjectInputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,55 +15,49 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
-    @Autowired
-    CustomerRepository customerRepository;
+    @Autowired CustomerRepository customerRepository;
 
-    // 책 1번째 70페이지
-    public Long count() {
+    public long	count(){
         return customerRepository.count();
     }
 
-    // 2번째
-    public void delete(Customer customer) {
-        customerRepository.delete(customer);
+    public void	delete(Customer entity){
+        customerRepository.delete(entity);
     }
-
-    // 3번째
-    public void delete(Iterable<Customer> it) {
+  
+    public void	deleteAll(){
         customerRepository.deleteAll();
     }
-
-    // 4번째
-    public void deleteAll() {
-        customerRepository.deleteAll();
+   
+    public  void	deleteAll(Iterable<Customer> entities){
+        customerRepository.deleteAll(entities);
+    }
+   
+    public void	deleteById(Long id){
+        customerRepository.deleteById(id);
     }
 
-    // 5번째
-    public boolean exists(Long id) {
+    public boolean	existsById(Long id){
         return customerRepository.existsById(id);
     }
-
-    // 6번째
-    public Iterable<Customer> findAll() {
+    
+    public Iterable<Customer>	findAll(){
         return customerRepository.findAll();
     }
-
-    // 7번째
-    public Iterable<Customer> findAll(Iterable<Customer> it) {
-        return findAll(it);
+    
+    public Iterable<Customer>	findAllById(Iterable<Long> ids){
+        return customerRepository.findAllById(ids);
     }
-
-    // 8번째
-    public Optional<Customer> findById(Long id) {
+    
+    public  Optional<Customer>	findById(Long id){
         return customerRepository.findById(id);
     }
 
-    // 9번째
-    public Iterable<Customer> save(Iterable<Customer> it){
-        return customerRepository.saveAll(it);
+    public Customer save(Customer entity){
+        return customerRepository.save(entity);
     }
-    //10번째
-    public Customer save(Customer customer){
-        return customerRepository.save(customer);
+    
+    public Iterable<Customer>	saveAll(Iterable<Customer> entities){
+        return customerRepository.saveAll(entities);
     }
 }
