@@ -65,11 +65,8 @@ public class CustomerService {
         return customerRepository.saveAll(entities);
     }
 
-    // public CustomerDTO login(String customerId){
-
-    //     // = findByCustomerId(customerId);
-
-        
+    // public CustomerDTO login(String id, String pw){
+    //     // return customerRepository.findByCustomerIdAndPassword(id, pw);
     // }
 
     

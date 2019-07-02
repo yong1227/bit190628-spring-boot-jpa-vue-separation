@@ -4,9 +4,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
 import javax.persistence.EntityNotFoundException;
 
+import com.bitcamp.web.common.lambda.IFunction;
+import com.bitcamp.web.common.lambda.ISupplier;
 import com.bitcamp.web.domain.CustomerDTO;
 import com.bitcamp.web.entities.Customer;
 import com.bitcamp.web.repositories.CustomerRepository;
@@ -36,6 +39,7 @@ public class CustomerController {
     @Autowired CustomerService customerService;
     @Autowired CustomerDTO customerDTO;
     @Autowired ModelMapper modelMapper;
+    @Autowired CustomerRepository repo;
 
     @Bean
     public ModelMapper modelmapper(){
@@ -140,15 +144,15 @@ public class CustomerController {
     // return null;
     // }
 
-
-    @GetMapping("login/{id}")
-    public HashMap<String, String> login(@RequestBody CustomerDTO customerDTO) {
-        HashMap<String,String > map = new HashMap<>();
-        // String id = customerDTO.setCustomerId();
-
-        // map.put("성공", (id.equals(customerDTO.getCustomerId()) ? ))
-        
-        map.put("성공", "성공");
-        return map; 
+    // 로그인
+    @PostMapping("/login")
+    public CustomerDTO login(@RequestBody CustomerDTO dto){
+      System.out.println("로그인 진입");
+      System.out.println("ID : "+dto.getCustomerId());
+      System.out.println("PW : "+dto.getPassword());
+      ISupplier fx = (() -> {
+          return repo.findByCustomerIdAndPassword(dto.getCustomerId(), dto.getPassword());
+      });
+      return (CustomerDTO) fx.get();
     }
 }

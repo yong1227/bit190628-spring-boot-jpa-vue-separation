@@ -3,12 +3,12 @@
   <Nav></Nav>
   <form>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <label for="id">ID:</label>
+      <input type="text" class="form-control" v-model="customerId" id="id" placeholder="Enter ID">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      <input type="password" class="form-control" v-model="password" id="pwd" placeholder="Enter password">
     </div>
     <div class="checkbox">
       <label><input type="checkbox"> Remember me</label>
@@ -19,6 +19,7 @@
     <button class="btn btn-default" @click="findAll">모두 찾기</button>
     <button class="btn btn-default" @click="findById">아이디에 맞는 멤버 찾기</button>
     <button class="btn btn-default" @click="save">등록하기</button>
+    <button class="btn btn-default" @click="login">login</button>
     
   </form>
   <Footer></Footer>
@@ -101,7 +102,6 @@ export default {
 
     save(){
       let data = {
-        id: 40,
         customerId: this.customerId,
         customerName: this.customerName,
         password : this.password,
@@ -125,6 +125,25 @@ export default {
       .catch(e=>{
         alert('ERROR')
       })
+    },
+    login(){
+      let data = {
+        customerId: this.customerId,
+        password: this.password
+      }
+      let headers = {
+        'Content-Type' : 'application/json',
+        'Authorization' : 'JWT fefege...'
+      }
+      axios.post(`${this.context}/login`,
+              JSON.stringify(data),
+              {headers: headers})
+        .then(res=>{
+          alert(`login() : ${res.data}`)
+        })
+        .catch( e => {
+          alert('error')
+        })
     },
   }
 }
