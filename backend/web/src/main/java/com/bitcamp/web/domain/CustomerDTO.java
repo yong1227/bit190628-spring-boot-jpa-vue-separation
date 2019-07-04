@@ -14,12 +14,12 @@ import lombok.Data;
 public class CustomerDTO {
 
     private String customerId, 
-                    customerName ,
+                    customerName,
                     password,
                     ssn,
-                    phone ,
-                    city ,
-                    address ,
-                    postalcode ,
+                    phone,
+                    city,
+                    address,
+                    postalcode,
                     photo;
 }

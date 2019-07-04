@@ -5,7 +5,7 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 //스토어 생성
-const store = new Vuex.Sotre({
+const store = new Vuex.Store({
     //스테이트
     state: {
         count : 0
