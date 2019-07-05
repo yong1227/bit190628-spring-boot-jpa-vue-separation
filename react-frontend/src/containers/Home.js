@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import '../assets/css/App.css';
-import Navbar from '../components/MyNavbar';
 
-class App extends Component{
+class Home extends Component{
   constructor(props){
     super()
   }
   render(){
     return(
       <div className='wrapper'>
-        <Navbar></Navbar>
+          홈
       </div>
     )
   }
 }
-export default App;
+export default Home;
