@@ -9,6 +9,7 @@ import Hello from '../containers/customer/Hello.jsx'
 import LightSwitch from '../containers/customer/LightSwitch.jsx'
 import Timer from '../containers/common/Timer.jsx'
 import TodoApp from '../containers/customer/TodoApp.jsx'
+import Clock from '../containers/common/Clock.jsx'
 
 const MyNavbar = () => {
   return (
@@ -25,6 +26,7 @@ const MyNavbar = () => {
           <Nav.Link><Link to="/Hello"> Hello</Link></Nav.Link>
           <Nav.Link><Link to="/LightSwitch"> LightSwitch</Link></Nav.Link>
           <Nav.Link><Link to="/Timer"> Timer</Link></Nav.Link>
+          <Nav.Link><Link to="/Clock"> Clock</Link></Nav.Link>
 
           <NavDropdown title="회원관리" id="basic-nav-dropdown">
             <NavDropdown.Item > 
@@ -54,6 +56,7 @@ const MyNavbar = () => {
     <Route path="/LightSwitch"  component={LightSwitch}/>
     <Route path="/Timer"  component={Timer}/>
     <Route path="/TodoApp"  component={TodoApp}/>
+    <Route path="/Clock"  component={Clock}/>
     </Router>
   );
 }
