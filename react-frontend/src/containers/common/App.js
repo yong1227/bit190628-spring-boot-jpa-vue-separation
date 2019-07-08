@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import '../assets/css/App.css';
-import Navbar from '../components/MyNavbar';
+import '../../assets/css/App.css';
+import Navbar from '../../components/MyNavbar';
 
 class App extends Component{
   constructor(props){

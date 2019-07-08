@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Figure, Table} from 'react-bootstrap'
-import reactLogo from '../assets/images/reactLogo.png'
+import reactLogo from '../../assets/images/reactLogo.png'
 
 class MyPage extends Component {
     constructor(props) {
