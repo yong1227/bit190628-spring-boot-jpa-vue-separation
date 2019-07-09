@@ -4,7 +4,7 @@ import Navbar from '../../components/MyNavbar';
 
 class App extends Component{
   constructor(props){
-    super()
+    super(props)
   }
   render(){
     return(

@@ -6,8 +6,8 @@ class TodoApp extends Component{
     constructor(props){
         super(props)
         this.state = {items: [], text: ''};
-        this.handleChange1 = this.handleChange3.bind(this);
-        this.handleSubmit2 = this.handleSubmit4.bind(this);
+        // this.handleChange1 = this.handleChange3.bind(this);
+        // this.handleSubmit2 = this.handleSubmit4.bind(this);
     }
     render(){
         return(
@@ -25,11 +25,11 @@ class TodoApp extends Component{
         );
     }
 
-    handleChange3(e){
+    handleChange3=(e)=>{
         this.setState({text: e.target.value});
     }
 
-    handleSubmit4(e){
+    handleSubmit4=(e)=>{
         e.preventDefault();
         if(!this.state.text.length){
             return;
