@@ -4,10 +4,14 @@ import axios from 'axios'
 
 class Login extends Component {
 
-        state = {
+    constructor(props){
+        super(props)
+        this.state = {
             controlId :'',
             password : ''
         }
+    }
+
 
 
     render() {
@@ -50,6 +54,12 @@ class Login extends Component {
 
     login = (e) => {
         e.preventDefault()
+        this.setState({submitted: true})
+        const{customerId,password} = this.state
+
+        console.log(`customerId is ${customerId}`)
+        console.log(`password is ${password}`)
+
         const data = {
             //DTO와 일치
             customerId : this.state.customerId,
